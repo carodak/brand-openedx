@@ -1,2 +1,1113 @@
 // Use this file to define style overrides for @edx/paragon
 // This file is included after all Paragon styles, but should generally avoid using private mixins in Paragon.
+
+/* Remove right extra whitespace */
+html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: #29b6f6;
+    text-decoration: none !important;
+}
+
+ /* Avoid having footer at the top of the page when the page doesn't have a lot of text */
+
+@media (min-width: 768px){
+    .main-container, .course-tabs .navbar-nav, .wrapper-course-material .course-material{
+        width: 750px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 959px){
+    .course-tabs .navbar-nav, .wrapper-course-material .course-material {
+        width: 900px !important;
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 992px){
+    .course-tabs .navbar-nav, .wrapper-course-material .course-material{
+        width: 960px !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (min-width: 992px){
+    .main-container, .course-tabs .navbar-nav, .wrapper-course-material .course-material {
+        width: 970px !important;
+    }
+}
+
+@media (min-width: 1200px){
+    .main-container, .course-tabs .navbar-nav, .wrapper-course-material .course-material {
+        width: 1170px !important;
+    }
+}
+
+@media (min-width: 1200px){
+    .main-container, .course-tabs .navbar-nav, .wrapper-course-material .course-material {
+        width: 1200px !important;
+    }
+}
+
+
+.main-container{
+    min-height: 100vh; /* will cover the 100% of viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.container{
+    box-shadow: none !important;
+}
+
+@media(min-width: 768px){
+    .container {
+        margin: 0 !important;
+    }
+}
+
+/*
+ * Hide sections that we don't need now and may use later on
+ */
+
+.footer .footer-links a:last-child::after, .global-header .nav-links .secondary.nav-account .user-image-frame, .dashboard-text, .dashboard-intro, div.course-header, .section.section-handouts, .section.section-dates, .dashboard .col.col-3.search-responsive, .container-footer, .course-target-link.enter-course, .footer .row.col-6.col-lg-2.no-gutters, .footer .col-8.no-gutters.px-2.d-none.d-lg-block nav:nth-child(2), .details.prerequisite, .pattern-library-shim.alert.alert-information.subsection-header, .discussion-article.view-discussion-home, .forum-nav-browse-filter .icon, [aria-label="Supplemental"] li:nth-child(2), .grade-detail-graph, .continue-button, .page-header-search, .discussion-show, .xmodule_display.xmodule_SequenceBlock .sequence-bottom, .completion_status{
+    display: none !important;
+}
+
+/* General fonts, colors, size */
+
+body {
+    font-family: 'Roboto' !important;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #6c6c6c;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto Slab' !important;
+    font-weight: 500 !important;
+    color: #384158 !important;
+}
+
+/* General buttons color */
+a.btn-flat, .login .form-actions.form-third-party-auth button[type="submit"], .register .form-actions.form-third-party-auth button[type="submit"], .passwordreset .form-actions.form-third-party-auth button[type="submit"], #forgot-password-modal #password-reset .form-actions.form-third-party-auth button[type="submit"], .login a.btn.login-register, .register a.btn.login-register, .passwordreset a.btn.login-register, #forgot-password-modal #password-reset a.btn.login-register, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status.course-status-certavailable .actions-primary .action-certificate .btn, .courseware-bookmarks-button .bookmarks-list-button, .discussion-module .discussion-show, .account-settings-sections .section .account-settings-section-body .u-field .field button.u-field-link, .discussion .course-tabs .right .new-post-btn, .discussion .course-tabs .right .control-button, .discussion .course-tabs .right .submit, .discussion-module .new-post-btn, .discussion-module .control-button, .discussion-module .submit, .forum-new-post-form .new-post-btn, .forum-new-post-form .control-button, .forum-new-post-form .submit, .discussion-submit-post .new-post-btn, .discussion-submit-post .control-button, .discussion-submit-post .submit, .container .discussion-body .discussion-submit-post, .container .discussion-module .discussion-submit-post, .container .discussion-user-threads .discussion-submit-post, .outside-app .discussion-body .discussion-submit-post, .outside-app .discussion-module .discussion-submit-post, .outside-app .discussion-user-threads .discussion-submit-post, .wrapper-account-settings .discussion-body .discussion-submit-post, .wrapper-account-settings .discussion-module .discussion-submit-post, .wrapper-account-settings .discussion-user-threads .discussion-submit-post, .discussion .comments .comment-form .discussion-submit-comment, .discussion-module .comments .comment-form .discussion-submit-comment, .discussion-user-threads .comments .comment-form .discussion-submit-comment, .view-profile .wrapper-profile-sections .discussion-body .discussion-submit-post, .view-profile .wrapper-profile-sections .discussion-module .discussion-submit-post, .view-profile .wrapper-profile-sections .discussion-user-threads .discussion-submit-post, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-body .discussion-submit-post, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-module .discussion-submit-post, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-user-threads .discussion-submit-post, .discussion .course-tabs .right .new-post-btn:link, .discussion .course-tabs .right .control-button:link, .discussion .course-tabs .right .submit:link, .discussion-module .new-post-btn:link, .discussion-module .control-button:link, .discussion-module .submit:link, .forum-new-post-form .new-post-btn:link, .forum-new-post-form .control-button:link, .forum-new-post-form .submit:link, .discussion-submit-post .new-post-btn:link, .discussion-submit-post .control-button:link, .discussion-submit-post .submit:link, .container .discussion-body .discussion-submit-post:link, .container .discussion-module .discussion-submit-post:link, .container .discussion-user-threads .discussion-submit-post:link, .outside-app .discussion-body .discussion-submit-post:link, .outside-app .discussion-module .discussion-submit-post:link, .outside-app .discussion-user-threads .discussion-submit-post:link, .wrapper-account-settings .discussion-body .discussion-submit-post:link, .wrapper-account-settings .discussion-module .discussion-submit-post:link, .wrapper-account-settings .discussion-user-threads .discussion-submit-post:link, .discussion .comments .comment-form .discussion-submit-comment:link, .discussion-module .comments .comment-form .discussion-submit-comment:link, .discussion-user-threads .comments .comment-form .discussion-submit-comment:link, .view-profile .wrapper-profile-sections .discussion-body .discussion-submit-post:link, .view-profile .wrapper-profile-sections .discussion-module .discussion-submit-post:link, .view-profile .wrapper-profile-sections .discussion-user-threads .discussion-submit-post:link, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-body .discussion-submit-post:link, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-module .discussion-submit-post:link, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-user-threads .discussion-submit-post:link, .discussion .course-tabs .right .new-post-btn:hover, .discussion .course-tabs .right .control-button:hover, .discussion .course-tabs .right .submit:hover, .discussion-module .new-post-btn:hover, .discussion-module .control-button:hover, .discussion-module .submit:hover, .forum-new-post-form .new-post-btn:hover, .forum-new-post-form .control-button:hover, .forum-new-post-form .submit:hover, .discussion-submit-post .new-post-btn:hover, .discussion-submit-post .control-button:hover, .discussion-submit-post .submit:hover, .container .discussion-body .discussion-submit-post:hover, .container .discussion-module .discussion-submit-post:hover, .container .discussion-user-threads .discussion-submit-post:hover, .outside-app .discussion-body .discussion-submit-post:hover, .outside-app .discussion-module .discussion-submit-post:hover, .outside-app .discussion-user-threads .discussion-submit-post:hover, .wrapper-account-settings .discussion-body .discussion-submit-post:hover, .wrapper-account-settings .discussion-module .discussion-submit-post:hover, .wrapper-account-settings .discussion-user-threads .discussion-submit-post:hover, .discussion .comments .comment-form .discussion-submit-comment:hover, .discussion-module .comments .comment-form .discussion-submit-comment:hover, .discussion-user-threads .comments .comment-form .discussion-submit-comment:hover, .view-profile .wrapper-profile-sections .discussion-body .discussion-submit-post:hover, .view-profile .wrapper-profile-sections .discussion-module .discussion-submit-post:hover, .view-profile .wrapper-profile-sections .discussion-user-threads .discussion-submit-post:hover, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-body .discussion-submit-post:hover, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-module .discussion-submit-post:hover, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-user-threads .discussion-submit-post:hover, .discussion .course-tabs .right .new-post-btn:active, .discussion .course-tabs .right .control-button:active, .discussion .course-tabs .right .submit:active, .discussion-module .new-post-btn:active, .discussion-module .control-button:active, .discussion-module .submit:active, .forum-new-post-form .new-post-btn:active, .forum-new-post-form .control-button:active, .forum-new-post-form .submit:active, .discussion-submit-post .new-post-btn:active, .discussion-submit-post .control-button:active, .discussion-submit-post .submit:active, .container .discussion-body .discussion-submit-post:active, .container .discussion-module .discussion-submit-post:active, .container .discussion-user-threads .discussion-submit-post:active, .outside-app .discussion-body .discussion-submit-post:active, .outside-app .discussion-module .discussion-submit-post:active, .outside-app .discussion-user-threads .discussion-submit-post:active, .wrapper-account-settings .discussion-body .discussion-submit-post:active, .wrapper-account-settings .discussion-module .discussion-submit-post:active, .wrapper-account-settings .discussion-user-threads .discussion-submit-post:active, .discussion .comments .comment-form .discussion-submit-comment:active, .discussion-module .comments .comment-form .discussion-submit-comment:active, .discussion-user-threads .comments .comment-form .discussion-submit-comment:active, .view-profile .wrapper-profile-sections .discussion-body .discussion-submit-post:active, .view-profile .wrapper-profile-sections .discussion-module .discussion-submit-post:active, .view-profile .wrapper-profile-sections .discussion-user-threads .discussion-submit-post:active, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-body .discussion-submit-post:active, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-module .discussion-submit-post:active, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-user-threads .discussion-submit-post:active, .discussion .course-tabs .right .new-post-btn:focus, .discussion .course-tabs .right .control-button:focus, .discussion .course-tabs .right .submit:focus, .discussion-module .new-post-btn:focus, .discussion-module .control-button:focus, .discussion-module .submit:focus, .forum-new-post-form .new-post-btn:focus, .forum-new-post-form .control-button:focus, .forum-new-post-form .submit:focus, .discussion-submit-post .new-post-btn:focus, .discussion-submit-post .control-button:focus, .discussion-submit-post .submit:focus, .container .discussion-body .discussion-submit-post:focus, .container .discussion-module .discussion-submit-post:focus, .container .discussion-user-threads .discussion-submit-post:focus, .outside-app .discussion-body .discussion-submit-post:focus, .outside-app .discussion-module .discussion-submit-post:focus, .outside-app .discussion-user-threads .discussion-submit-post:focus, .wrapper-account-settings .discussion-body .discussion-submit-post:focus, .wrapper-account-settings .discussion-module .discussion-submit-post:focus, .wrapper-account-settings .discussion-user-threads .discussion-submit-post:focus, .discussion .comments .comment-form .discussion-submit-comment:focus, .discussion-module .comments .comment-form .discussion-submit-comment:focus, .discussion-user-threads .comments .comment-form .discussion-submit-comment:focus, .view-profile .wrapper-profile-sections .discussion-body .discussion-submit-post:focus, .view-profile .wrapper-profile-sections .discussion-module .discussion-submit-post:focus, .view-profile .wrapper-profile-sections .discussion-user-threads .discussion-submit-post:focus, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-body .discussion-submit-post:focus, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-module .discussion-submit-post:focus, .view-profile .profile-self .wrapper-profile-field-account-privacy .u-field-account_privacy .discussion-user-threads .discussion-submit-post:focus, a.btn, a.btn:link, button[type="submit"], input[type="submit"], input[type="button"], .btn-outline-primary, .view-teams .btn-secondary, .view-teams .action-primary.action, .header-global .nav-courseware li .btn, .header-global .nav-courseware div .btn, .view-survey .action-primary, .view-login .form-actions button[type="submit"], .view-register .form-actions button[type="submit"], .view-passwordreset .form-actions button[type="submit"], .view-survey .form-actions button[type="submit"], .login .form-actions button[type="submit"], .register .form-actions button[type="submit"], .passwordreset .form-actions button[type="submit"], #forgot-password-modal #password-reset .form-actions button[type="submit"], .search-bar .search-button, .search-bar .cancel-button, .dashboard .my-courses .course .details .enter-course, .dashboard .my-courses .course .wrapper-messages-primary .message.message-upsell .action-upgrade, .dashboard .empty-dashboard-message a, .search-results .search-load-next, .find-courses .discovery-submit, .courses-container .courses .course .course-image .cover-image .learn-more, .xmodule_display.xmodule_CapaModule div.problem .action button, #expand-collapse-outline-all-button, .ednxtDowngrade-modal__button {
+    background-color: #66d6ff !important;
+    border-color: #66d6ff !important;
+    color: white !important;
+}
+
+/* Dashboard */
+
+.dashboardintro{
+    padding-top: 2.5rem;
+}
+
+.dashboard, .dashboard .main-container{
+    padding: 0 !important;
+}
+
+.redirect{
+    color: #664d03 !important;
+    font-size: 18px !important;
+}
+
+/* Dashboard certi frame: pic, titles.. */
+@media (max-width: 768px){
+    .wrapper-course-image{
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wrapper-course-image a{
+        flex: 1 1 auto;
+    }
+
+    .wrapper-course-details{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .wrapper-course-details .course-title, .wrapper-course-info-actions{
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 767.98px){
+    .course-info{
+        flex: 0 0 100%;
+    }
+}
+
+.wrapper-message-primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-messages-primary{
+    padding-top: 0 !important;
+}
+
+.wrapper-messages-primary .messages-list{
+    background-color: white;
+}
+
+
+/* Course nav bar, Course menu */
+.content-wrapper .course-tabs .navbar-nav{
+    margin-left: auto;
+    align-items: center;
+}
+
+.content-wrapper .course-tabs .navbar-nav, .navbar.course-tabs, .wrapper-course-material .tab a{
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    font-family: 'Roboto' !important;
+    justify-content: space-evenly;
+}
+
+.content-wrapper .course-tabs .navbar-nav, .wrapper-course-material .course-tabs{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper-course-material .course-tabs li a:link, .wrapper-course-material .course-tabs li a:visited {
+    border-bottom: none !important;
+    color: #313131 !important;
+}
+
+.content-wrapper .course-tabs .nav-item.active .nav-link, .content-wrapper .course-tabs .nav-item:hover .nav-link {
+    border-bottom-color: #66d6ff !important;
+    color: #66d6ff !important;
+}
+
+.wrapper-course-material .course-material .course-tabs{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wrapper-course-material .course-tabs .tab a{
+    line-height: 26.5px;
+}
+
+.wrapper-course-material .course-tabs .tab a:hover, .wrapper-course-material .course-tabs .tab div.info-wrapper section.handouts ol li div.hitarea:hover+h4, div.info-wrapper section.handouts ol li .wrapper-course-material .course-tabs .tab div.hitarea:hover+h4, .wrapper-course-material .course-tabs .tab div.info-wrapper section.handouts ol li div.hitarea:focus+h4, div.info-wrapper section.handouts ol li .wrapper-course-material .course-tabs .tab div.hitarea:focus+h4, .wrapper-course-material .course-tabs .tab a:focus, .wrapper-course-material .course-tabs .tab a.active, .wrapper-course-material .course-tabs .tab a:visited:hover, .wrapper-course-material .course-tabs .tab div.info-wrapper section.handouts ol li div.hitarea:hover+h4:visited, div.info-wrapper section.handouts ol li .wrapper-course-material .course-tabs .tab div.hitarea:hover+h4:visited, .wrapper-course-material .course-tabs .tab div.info-wrapper section.handouts ol li div.hitarea:focus+h4:visited, div.info-wrapper section.handouts ol li .wrapper-course-material .course-tabs .tab div.hitarea:focus+h4:visited, .wrapper-course-material .course-tabs .tab a:visited:focus{
+    border-bottom-color: #66d6ff !important;
+    color: #66d6ff !important;
+}
+
+.icon-course-menu{
+    padding-right: 5px;
+}
+
+/* Removing date tab */
+.content-wrapper.main-container .course-tabs.tabs li.tab:nth-child(3), 
+.content-wrapper.main-container .course-tabs .navbar-nav li.tab:nth-child(3), 
+.content-wrapper.main-container .course-tabs.tabs li.nav-item:nth-child(3),
+.content-wrapper.main-container .course-tabs .navbar-nav li.nav-item:nth-child(3){
+    
+}
+
+/* CERTIFICATION PAGE */
+.intro-certi-video video{
+    width: 100%;
+}
+
+.course-outline .block-tree .section{
+    margin: 0 !important;
+}
+
+/* Dashboard menu */
+.navbar.course-tabs, .wrapper-course-material{
+    background-color: #f5f5f5 !important;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+    height: 100% !important;
+}
+
+.wrapper-course-material .course-tabs:after{
+    display: none;
+}
+
+/* Course (module) page */
+#course-container{
+    margin: 0;
+}
+
+.page-header, .page-content, #course-info-progress, .static_tab_wrapper, .course-wrapper main{
+    padding: 0 !important;
+}
+
+.page-header{
+    padding-top: 20px !important;
+}
+
+.course-outline .block-tree .section{
+    border: 1px solid rgba(0,0,0,.125) !important;
+    border-radius: .375rem;
+    margin-bottom: .5rem!important;
+    padding: .5rem!important;
+}
+
+.course-outline .block-tree .section ol.outline-item .subsection{
+    border-top: 1px solid #e7e7e7;
+}
+
+.course-outline .block-tree .section ol.outline-item .subsection a:hover{
+    text-decoration: underline !important;
+}
+
+.page-header, #course-container{
+    border: none !important;
+}
+
+.course-outline {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#expand-collapse-outline-all-button{
+    width: 150px;
+    flex: 1 1 auto;
+    margin-bottom: 10px;
+}
+
+#course-container .page-header{
+    padding-bottom: 0;
+    align-items: center;
+}
+
+#course-container .page-header-main{
+    flex: 1 1 400px;
+}
+
+#course-container .page-header-secondary{
+    margin: 0;
+}
+
+/* Preview */
+.wrapper-preview-menu, .preview-menu{
+    background-color: white !important;
+}
+
+/* Course progress bar */
+
+.completion{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#myProgress {
+    flex: 0.5 0.5 auto;
+    height: 36px;
+    border-radius: 5px;
+    border: 1px solid #66d6ff;
+}
+
+#progressScore{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    margin-left: 17px;
+    font-size: 17px;
+}
+
+#progressBar {
+    width: 1%;
+    height: 100%;
+    background-color: #66d6ff;
+    flex-grow: 1;
+}
+
+/* Checkmarks */
+
+.course-outline .block-tree .outline-button .complete-checkmark{
+    border: 1px solid #66d6ff !important;
+    background-color: #66d6ff !important;
+}
+
+/* Course Picture */
+.course-picture-wrapper{
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+#course-container .course-outline{
+    padding-top: 0 !important;
+}
+
+#course-container .page-content{
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#course-container .page-content-main{
+    flex: 0.7 0.7 70%;
+    width: 100%;
+}
+
+#course-container .course-sidebar{
+    flex: 0.3 0.3 200px;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Discussion board page */
+
+.page-content-container, .container>div, .course-wrapper{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+@media (min-width: 768px){
+    .discussion-column {
+        width: auto !important;
+    }
+}
+
+
+.discussion-board{
+    width: 100%;
+}
+
+.discussion-board .discussion-body{
+    flex-direction: row;
+}
+
+.forum-nav{
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+}
+
+.forum-nav-browse-menu{
+    overflow: visible !important;
+    max-height: none !important;
+    height: 100% !important;
+}
+
+.discussion-board .page-header-main{
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+}
+
+.discussion-board .page-header-secondary{
+    margin-left: 0 !important;
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+}
+
+.forum-actions{
+    flex: 0.7 0.7 500px;
+}
+
+.forum-actions .btn{
+    width: 300px;
+}
+
+.forum-search{
+    margin-left: 0 !important;
+    flex: 0.3 0.3 200px;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+}
+
+.discussion .forum-search .search-input{
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100%;
+}
+
+.discussion .forum-search .field-label{
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.discussion-column, .discussion-post, .post-extended-content{
+    margin-left: 0 !important;
+}
+
+.new-post-article .forum-new-post-form{
+    padding: 0 !important;
+}
+
+.has-breadcrumbs{
+    margin-bottom: 1em;
+}
+
+.has-breadcrumbs-2{
+    padding-top: 20px;
+}
+
+.has-breadcrumbs .breadcrumbs .all-topics{
+    border: none !important;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1em !important;
+}
+
+.breadcrumbs, .breadcrumbs-2{
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs .nav-item a, .breadcrumbs-2 .nav-item a{
+    color: #337ab7;
+    font-size: 14px !important;
+    font-family: 'Roboto' !important;
+}
+
+.breadcrumbs-2 .fa-angle-right {
+    margin-left: 5px;
+    display: inline-block;
+    color: #313131;
+}
+
+.breadcrumbs-2 .nav-item {
+    margin-left: 5px !important;
+    white-space: nowrap;
+    max-width: 12em !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block !important;
+}
+
+.breadcrumbs-2 .nav-item-dashboard{
+    margin-left: 0 !important;
+}
+
+.breadcrumbs .nav-item{
+    white-space: nowrap;
+    max-width: 12em !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block !important;
+}
+
+.discussion-board>.page-header .has-breadcrumbs .breadcrumbs{
+    font-size: 1em !important;
+}
+
+
+.breadcrumbs>.nav-item:first-child{
+    margin-left: 0 !important;
+}
+
+
+.forum-nav-browse-filter{
+    border: none !important;
+}
+
+.discussion-board .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "\f04a" !important;
+}
+
+/* Smileys */
+.wmd-button {
+    position: static;
+}
+
+/* We put in bold the sections of the discussion board  */
+:not(.forum-nav-browse-submenu) > li > span.forum-nav-browse-title{
+    font-family: 'Roboto Slab' !important;
+    font-weight: 500 !important;
+    color: #384158 !important;
+    padding-left: 35px !important;
+    font-size: 16px;
+    background-color: #f5f5f5 !important;
+}
+
+.forum-nav-browse-submenu > li > span.forum-nav-browse-title {
+    padding-left: 50px !important;
+}
+
+.forum-nav-browse-menu-wrapper{
+    background: white !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(217, 217, 217) !important;
+    border-image: initial !important;
+}
+
+.forum-nav-browse-title{
+    border: none !important;
+}
+
+.forum-new-post-form-wrapper .field-label label{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.forum-new-post-form-wrapper .field-label label input{
+    flex: 0 0 10px;
+}
+
+.forum-new-post-form-wrapper .field-label label span{
+    flex: 1 1 20px;
+}
+
+button.cancel{
+    float: right;
+}
+
+/* Unit page */
+.full-title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.full-title > div > h5 > a{
+    color: #b7b6b6 !important;
+}
+
+.full-title > div > h5 > a:after{
+    content: "\2022";
+    color: #6c6c6c;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.unit-big-title{
+    flex: 1 1 100%;
+}
+
+.xmodule_display.xmodule_VideoBlock .video{
+    margin: 0 !important;
+}
+
+body.view-in-course .container{
+    width: 100%;
+    padding: 0;
+}
+
+.sequence{
+    padding: 0px 0px 18px 0px;
+}
+
+.unit-title{
+    float: left;
+}
+
+html.h5p-iframe, html.h5p-iframe>body{
+    display: table !important;
+}
+
+.course-wrapper .course-content .vert-mod .vert, .course-wrapper .courseware-results-wrapper .vert-mod .vert {
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+/* Transcript */
+.xmodule_display.xmodule_VideoBlock .video .tc-wrapper{
+    background: black;
+}
+
+.subtitles span{
+    color: white;
+    font-size: 18px;
+}
+
+.subtitles .current span{
+    color: #66d6ff;
+}
+
+.xmodule_display.xmodule_VideoBlock .video .video-wrapper .closed-captions.is-visible{
+    color: white;
+    font-size: 25px;
+}
+
+/* References */
+.xmodule_display.xmodule_HtmlBlock .references a:link{
+    text-decoration: underline !important;
+}
+
+/* Remove points from Unit */
+.openedxscorm_block p:first-of-type{
+    display: none;
+}
+
+/* Footer */
+footer.footer {
+    color: #6c6c6c;
+    padding-top: 25px;
+    padding-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: rgb(173 173 173) 0px 2px 10px;
+}
+
+@media (min-width: 768px){
+    footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 {
+        width: 750px;
+    }
+}
+@media (min-width: 992px){
+    footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){
+    footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 {
+        width: 1170px;
+    }
+}
+@media (min-width: 1200px){
+    footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 {
+        width: 1200px;
+    }
+}
+
+footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    align-items: center !important;
+}
+
+footer.footer .content-container.row.no-gutters.align-items-center.py-2.px-2.px-lg-0 div{
+    flex: 1 1 400px;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+footer.footer .content-container .col-6.col-lg-2{
+    display: flex;
+    order: 2;
+    max-width: 100% !important;
+}
+
+footer.footer .content-container .col-8.no-gutters.px-2.d-none.d-lg-block{
+    order: 1;
+}
+
+footer.footer .content-container .footer-links .nav-link{
+    padding: 0;
+    color: #6c6c6c;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 13px !important;
+}
+
+footer.footer .content-container .footer-links .nav-link:hover{
+    color:#66d6ff;
+}
+
+footer.footer .content-container .footer-links .nav-link::after {
+    content: "|";
+    color: #6c6c6c;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+footer.footer .content-container .footer-extra{
+    order: 3;
+}
+
+.footer-logo img{
+    width: 150px;
+}
+
+.footer-extra small{
+    font-size: 17px;
+    font-weight: 300;
+}
+
+/* Discussion Unit */
+.discussion-module .forum-nav-thread-list{
+    height: 100% !important;
+}
+
+.discussion-module .add_post_btn_container{
+    text-align: left !important;
+}
+
+.discussion-module .new-post-btn{
+    line-height: 1 !important;
+    width: 200px;
+}
+
+.discussion.inline-discussion .new-post-article, .discussion.inline-discussion .inline-thread{
+    border: none !important;
+}
+
+/* HEADER */
+.navbar.global-header{
+    min-height: 0 !important;
+    position: sticky !important;
+    top: 0;
+    box-shadow: rgb(220 220 220) 0px 2px 10px;
+}
+
+.container, .content-container{
+    max-width: none !important;
+}
+
+/* Top menu */
+.main-header.content-container{
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100% !important;
+    z-index: 3 !important;
+}
+
+@media (min-width: 1600px){
+    .main-header.content-container {
+        padding-left: 85px;
+        padding-right: 85px;
+    }
+}
+
+.header-logo{
+    flex: 1 1 20%;
+    margin: 0;
+}
+
+.header-logo a{
+    height: 100% !important;
+}
+
+
+.navbar-nav {
+    width: 100%;
+}
+
+.container-navbar-links{
+    flex: 1 1 80%;
+}
+
+.container-navbar-links .navbar-links, .global-header .nav-links .secondary.nav-account .nav-item a{
+    width: 100%;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    /* line-height: 1.7em; */
+}
+
+.container-navbar-links a{
+    color: #384158 !important;
+}
+
+.container-navbar-links .navbar-nav .nav-item:first-child{
+    margin-right: auto;
+}
+
+.container-navbar-links .navbar-nav .nav-item a{
+    padding: 0 40px 0 0 !important;
+}
+
+/* Logo */
+.navbar-logo{
+    width: 200px !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 480px){
+    .navbar-logo{
+        width: 150px !important;
+    }
+}
+
+.navbar.global-header .navbar-logo img{
+    max-height: none !important;
+}
+
+@media (max-width: 767px){
+    .main-header.content-container {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+}
+
+/* Account Menu */
+.nav-account{
+    border: none !important;
+    background-color: #00acd8 !important;
+    padding: 25px 40px !important;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+}
+
+.container-navbar-links .nav-links, .nav-account{
+    height: 100%;
+}
+
+.nav-item{
+    padding: 0 !important;
+}
+
+.toggle-user-dropdown{
+    padding: 0 !important;
+}
+
+.mobile-menu{
+    top: 100% !important;
+    min-width: 0 !important;
+    width: 100%;
+}
+
+.mobile-menu .dropdown-item a{
+    padding: 5px 1.5rem 10px !important;
+}
+
+.mobile-menu .dropdown-item a:hover{
+    text-decoration: underline !important;
+}
+
+.nav-links{
+    position: relative !important;
+}
+.mobile-menu .dropdown-item a, .global-header .nav-links .secondary.nav-account .nav-item a.menu-title, .nav-account .toggle-user-dropdown{
+    color: #fff !important;
+}
+
+.window-wrap .navbar-links .nav-link{
+    color: #374158 !important;
+}
+
+.window-wrap .navbar-links .nav-link:hover{
+    color: #66d6ff !important;
+}
+
+.window-wrap .navbar-links .nav-link:hover, .nav-item .username:hover, .navbar-links .nav-link:hover{
+    text-decoration: underline !important;
+}
+
+.mobile-menu .dropdown-item{
+    border: none !important;
+}
+
+.mobile-menu .dropdown-item a:hover{
+    background-color: #00acd8;
+}
+
+.global-header .nav-links .secondary .mobile-menu .dropdown-item a:hover{
+    text-decoration: underline;
+    color: white !important;
+}
+
+.global-header .nav-links .secondary .mobile-menu{
+    background-color: #00acd8 !important;
+}
+
+@media (min-width: 768px){
+    .global-header .nav-links .secondary.nav-account .dropdown-user-menu {
+        min-width: 100% !important;
+    }
+}
+
+/* Change the appearance of the username so it does not look clickable  */
+.menu-title .username, .toggle-user-dropdown, .secondary.nav-account{
+    cursor: default !important;
+}
+
+
+.menu-title .username:hover{
+    text-decoration: none !important;
+}
+
+.menu-title{
+    pointer-events: none;
+}
+
+/* Hamburger top menu */
+.hamburger-menu {
+    position: fixed !important;
+    top: 2.2vh !important;
+    right: 1em;
+    z-index: 111;
+    margin: 0 0 0 auto;
+}
+
+.mobile-menu-wrapper{
+    background: #232323;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding-left: 15%;
+    max-width: 480px;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    transition: transform 0.5s ease-out;
+    -webkit-transform: translate(0, 0);
+    background-clip: content-box;
+}
+
+@media (max-width: 991.98px){
+    .nav-account, .container-navbar-links{
+        display: none;
+    }
+
+    .main-header.content-container{
+        align-items: center;
+    }
+}
+
+.navbar.global-header .mobile-menu{
+    padding: 0px 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: none;
+}
+
+
+.mobile-menu .mobile-nav-link a{
+    background-color: transparent !important;
+    border-bottom: none !important;
+    color: #777;
+    text-align: left !important;
+}
+
+.mobile-menu .mobile-nav-link a::after{
+    display: none;
+}
+
+.mobile-menu .mobile-nav-link a:hover{
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.dropdown-item{
+    background-color: #00acd8 !important;
+    color: white !important;
+}
+
+
+.dropdown-item:hover{
+    background-color: #00acd8 !important;
+}
+
+.dropdown-item a{
+    color: white !important; 
+}
+
+.mobile-menu .mobile-nav-link a, .mobile-menu .mobile-nav-link form{
+    font-family: 'Roboto';
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7em;
+    padding: 8px 0.5rem 8px 0.5rem;
+}
+
+/* Login and Logout pages */
+li.login-class{
+    background-color: #00acd8;
+    padding: 25px 40px !important;
+}
+
+li.login-class a{
+    padding: 8px 0.5rem 8px 0.5rem !important;
+    color: white;
+}
+
+#login-form .toggle-form{
+    font-size: 20px;
+}
+
+/* Register Page */
+.login-help.field-link{
+    display: none !important;
+}
+
+#login-help{
+    display: block !important;
+    padding-left: 0 !important;
+}
+
+/* Progress Page */
+.wrapper-msg.wrapper-auto-cert .auto-cert-message .has-actions .msg-actions{
+    width: auto;
+}
+
+.wrapper-msg.wrapper-auto-cert .auto-cert-message{
+    background: #00acd8;
+}
+
+/* Profile page */
+
+.wrapper-profile-field-account-privacy{
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.wrapper-profile-field-account-privacy .u-field-account_privacy{
+    flex: 1 1 50%;
+}
+
+.wrapper-profile-field-account-privacy .profile_settings{
+    flex: 0 0 auto;
+}
+
+.wrapper-profile-field-account-privacy .profile_settings button{
+    background-image: none !important;
+    background-color: #00acd8;
+    color: white;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: 'Roboto';
+    text-shadow: none !important;
+    padding: 20px 20px;
+}
+
+/* Account page */
+
+.wrapper-account-settings main:not(.home){
+    background-color: white !important;
+}
+
+/* Instructor page */
+.instructor-dashboard-content-2{
+    padding: 0;
+}
+
+/* Glossary page */
+.xblock .glossary table{
+    table-layout: fixed !important;
+}
